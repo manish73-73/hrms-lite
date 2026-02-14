@@ -122,8 +122,8 @@ function AttendanceManagement() {
 
   return (
     <div className="section">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-        <h2 className="section-title">Attendance Management</h2>
+      <div className="section-header">
+        <h2 className="section-title">📋 Attendance Management</h2>
         <button 
           className="button button-primary"
           onClick={() => setShowForm(!showForm)}
@@ -144,8 +144,8 @@ function AttendanceManagement() {
       {success && <div className="alert alert-success">✓ {success}</div>}
 
       {showForm && (
-        <form onSubmit={handleSubmit} style={{ marginBottom: '2rem', padding: '1.5rem', backgroundColor: '#f9fafb', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
-          <h3 style={{ marginBottom: '1rem', fontSize: '1.125rem', fontWeight: '600' }}>Mark Attendance</h3>
+        <form onSubmit={handleSubmit} className="form-container">
+          <h3>Mark Attendance</h3>
           
           <div className="form-row">
             <div className="form-group">
@@ -209,12 +209,12 @@ function AttendanceManagement() {
         </form>
       )}
 
-      <div style={{ marginBottom: '1.5rem' }}>
-        <h3 style={{ marginBottom: '1rem', fontSize: '1.125rem', fontWeight: '600' }}>Filter by Employee</h3>
+      <div className="filter-section">
+        <h3>Filter by Employee</h3>
         <select
           value={selectedEmployeeId}
           onChange={(e) => setSelectedEmployeeId(e.target.value)}
-          style={{ width: '100%', maxWidth: '400px', padding: '0.75rem', border: '1px solid #e5e7eb', borderRadius: '6px' }}
+          className="filter-select"
         >
           <option value="">All Employees</option>
           {employees.map(emp => (
