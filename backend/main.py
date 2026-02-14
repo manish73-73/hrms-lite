@@ -17,9 +17,13 @@ Base = declarative_base()
 app = FastAPI(title="HRMS Lite API", version="1.0.0")
 
 # CORS configuration
+# CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://hrms-lite-one-gamma.vercel.app",
+        "http://localhost:3000"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
