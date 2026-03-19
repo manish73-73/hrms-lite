@@ -11,6 +11,7 @@ export const employeeAPI = {
   getEmployees: () => apiClient.get('/api/employees'),
   getEmployee: (employeeId: string) => apiClient.get(`/api/employees/${employeeId}`),
   deleteEmployee: (employeeId: string) => apiClient.delete(`/api/employees/${employeeId}`),
+  getEmployeeStats: (employeeId: string) => apiClient.get(`/api/attendance/${employeeId}/stats`),
 };
 
 export const attendanceAPI = {
@@ -19,3 +20,9 @@ export const attendanceAPI = {
   getEmployeeAttendance: (employeeId: string) => apiClient.get(`/api/attendance/${employeeId}`),
   getPresentDays: (employeeId: string) => apiClient.get(`/api/attendance/${employeeId}/present-days`),
 };
+
+export const dashboardAPI = {
+  getStats: () => apiClient.get('/api/dashboard/stats'),
+  getDashboardData: () => apiClient.get('/api/dashboard'),
+};
+
