@@ -31,7 +31,6 @@ function Dashboard() {
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [attendanceToday, setAttendanceToday] = useState<Attendance[]>([]);
   const [recentEmployees, setRecentEmployees] = useState<Employee[]>([]);
-  const [allAttendance, setAllAttendance] = useState<Attendance[]>([]);
   const [attendanceStats, setAttendanceStats] = useState<AttendanceStats[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -54,7 +53,6 @@ function Dashboard() {
       const attData = attRes.data;
 
       setEmployees(empData);
-      setAllAttendance(attData);
 
       // Get recently added employees (last 5)
       const recent = empData.slice().reverse().slice(0, 5);
@@ -101,11 +99,6 @@ function Dashboard() {
       .join('')
       .toUpperCase()
       .slice(0, 2);
-  };
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
   };
 
   if (loading) {
